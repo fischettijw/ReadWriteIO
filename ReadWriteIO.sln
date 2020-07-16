@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadWriteIO", "ReadWriteIO.csproj", "{61B9BEF4-6D92-4C0B-9E4B-38BC8AE3026C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61B9BEF4-6D92-4C0B-9E4B-38BC8AE3026C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B9BEF4-6D92-4C0B-9E4B-38BC8AE3026C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B9BEF4-6D92-4C0B-9E4B-38BC8AE3026C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B9BEF4-6D92-4C0B-9E4B-38BC8AE3026C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6D3720B-A96D-41D3-AA74-70F3CF221D2C}
+	EndGlobalSection
+EndGlobal
