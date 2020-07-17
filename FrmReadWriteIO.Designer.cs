@@ -39,13 +39,16 @@
             this.LblAge = new System.Windows.Forms.Label();
             this.TxtMI = new System.Windows.Forms.TextBox();
             this.LblMI = new System.Windows.Forms.Label();
+            this.LblFilePath = new System.Windows.Forms.Label();
+            this.BtnSelectFile = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnRead
             // 
-            this.BtnRead.Location = new System.Drawing.Point(55, 125);
+            this.BtnRead.Location = new System.Drawing.Point(55, 108);
             this.BtnRead.Name = "BtnRead";
-            this.BtnRead.Size = new System.Drawing.Size(185, 61);
+            this.BtnRead.Size = new System.Drawing.Size(133, 61);
             this.BtnRead.TabIndex = 0;
             this.BtnRead.Text = "Read";
             this.BtnRead.UseVisualStyleBackColor = true;
@@ -53,9 +56,9 @@
             // 
             // BtnWrite
             // 
-            this.BtnWrite.Location = new System.Drawing.Point(315, 125);
+            this.BtnWrite.Location = new System.Drawing.Point(367, 108);
             this.BtnWrite.Name = "BtnWrite";
-            this.BtnWrite.Size = new System.Drawing.Size(185, 61);
+            this.BtnWrite.Size = new System.Drawing.Size(133, 61);
             this.BtnWrite.TabIndex = 1;
             this.BtnWrite.Text = "Write";
             this.BtnWrite.UseVisualStyleBackColor = true;
@@ -65,7 +68,7 @@
             // 
             this.LbxRows.FormattingEnabled = true;
             this.LbxRows.ItemHeight = 24;
-            this.LbxRows.Location = new System.Drawing.Point(55, 210);
+            this.LbxRows.Location = new System.Drawing.Point(55, 193);
             this.LbxRows.Name = "LbxRows";
             this.LbxRows.Size = new System.Drawing.Size(445, 196);
             this.LbxRows.TabIndex = 2;
@@ -73,7 +76,7 @@
             // LblFirstName
             // 
             this.LblFirstName.AutoSize = true;
-            this.LblFirstName.Location = new System.Drawing.Point(23, 39);
+            this.LblFirstName.Location = new System.Drawing.Point(23, 22);
             this.LblFirstName.Name = "LblFirstName";
             this.LblFirstName.Size = new System.Drawing.Size(101, 24);
             this.LblFirstName.TabIndex = 3;
@@ -81,14 +84,14 @@
             // 
             // TxtFirstName
             // 
-            this.TxtFirstName.Location = new System.Drawing.Point(23, 70);
+            this.TxtFirstName.Location = new System.Drawing.Point(23, 53);
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(139, 29);
             this.TxtFirstName.TabIndex = 4;
             // 
             // TxtLastName
             // 
-            this.TxtLastName.Location = new System.Drawing.Point(183, 70);
+            this.TxtLastName.Location = new System.Drawing.Point(183, 53);
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(187, 29);
             this.TxtLastName.TabIndex = 6;
@@ -96,7 +99,7 @@
             // LblLastName
             // 
             this.LblLastName.AutoSize = true;
-            this.LblLastName.Location = new System.Drawing.Point(183, 39);
+            this.LblLastName.Location = new System.Drawing.Point(183, 22);
             this.LblLastName.Name = "LblLastName";
             this.LblLastName.Size = new System.Drawing.Size(99, 24);
             this.LblLastName.TabIndex = 5;
@@ -104,7 +107,7 @@
             // 
             // TxtAge
             // 
-            this.TxtAge.Location = new System.Drawing.Point(474, 70);
+            this.TxtAge.Location = new System.Drawing.Point(474, 53);
             this.TxtAge.Name = "TxtAge";
             this.TxtAge.Size = new System.Drawing.Size(56, 29);
             this.TxtAge.TabIndex = 10;
@@ -112,7 +115,7 @@
             // LblAge
             // 
             this.LblAge.AutoSize = true;
-            this.LblAge.Location = new System.Drawing.Point(474, 39);
+            this.LblAge.Location = new System.Drawing.Point(474, 22);
             this.LblAge.Name = "LblAge";
             this.LblAge.Size = new System.Drawing.Size(45, 24);
             this.LblAge.TabIndex = 7;
@@ -120,7 +123,7 @@
             // 
             // TxtMI
             // 
-            this.TxtMI.Location = new System.Drawing.Point(396, 70);
+            this.TxtMI.Location = new System.Drawing.Point(396, 53);
             this.TxtMI.Name = "TxtMI";
             this.TxtMI.Size = new System.Drawing.Size(51, 29);
             this.TxtMI.TabIndex = 8;
@@ -128,17 +131,50 @@
             // LblMI
             // 
             this.LblMI.AutoSize = true;
-            this.LblMI.Location = new System.Drawing.Point(396, 39);
+            this.LblMI.Location = new System.Drawing.Point(396, 22);
             this.LblMI.Name = "LblMI";
             this.LblMI.Size = new System.Drawing.Size(40, 24);
             this.LblMI.TabIndex = 9;
             this.LblMI.Text = "M.I.";
             // 
+            // LblFilePath
+            // 
+            this.LblFilePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFilePath.Location = new System.Drawing.Point(23, 416);
+            this.LblFilePath.Name = "LblFilePath";
+            this.LblFilePath.Size = new System.Drawing.Size(507, 27);
+            this.LblFilePath.TabIndex = 11;
+            this.LblFilePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BtnSelectFile
+            // 
+            this.BtnSelectFile.Location = new System.Drawing.Point(211, 108);
+            this.BtnSelectFile.Name = "BtnSelectFile";
+            this.BtnSelectFile.Size = new System.Drawing.Size(133, 61);
+            this.BtnSelectFile.TabIndex = 12;
+            this.BtnSelectFile.Text = "Select File";
+            this.BtnSelectFile.UseVisualStyleBackColor = true;
+            this.BtnSelectFile.Click += new System.EventHandler(this.BtnSelectFile_Click);
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.Location = new System.Drawing.Point(211, 461);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(133, 37);
+            this.BtnExit.TabIndex = 13;
+            this.BtnExit.Text = "Exit Program";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
             // FrmReadWriteIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 438);
+            this.ClientSize = new System.Drawing.Size(555, 511);
+            this.Controls.Add(this.BtnExit);
+            this.Controls.Add(this.BtnSelectFile);
+            this.Controls.Add(this.LblFilePath);
             this.Controls.Add(this.TxtMI);
             this.Controls.Add(this.LblMI);
             this.Controls.Add(this.TxtAge);
@@ -174,6 +210,9 @@
         private System.Windows.Forms.Label LblAge;
         private System.Windows.Forms.TextBox TxtMI;
         private System.Windows.Forms.Label LblMI;
+        private System.Windows.Forms.Label LblFilePath;
+        private System.Windows.Forms.Button BtnSelectFile;
+        private System.Windows.Forms.Button BtnExit;
     }
 }
 

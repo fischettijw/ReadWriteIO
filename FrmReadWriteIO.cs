@@ -22,13 +22,13 @@ namespace ReadWriteIO
 
         private void FrmReadWriteIO_Load(object sender, EventArgs e)
         {
-            fileIO = new ReadWriteCSV("Data.txt", ",");
-            //fileIO = new ReadWriteCSV(@"D:\Documents\Visual Studio 2019\Projects\ReadWriteIO\bin\Debug\Data.txt", ",");
-            TxtFirstName.Select();
+            BtnRead.Enabled = false;
+            BtnWrite.Enabled = false;
         }
 
         private void BtnRead_Click(object sender, EventArgs e)
         {
+            TxtFirstName.Select();
             fileIO.ReadDelimitedStrings();
             LbxRows.Items.Clear();
 
@@ -40,8 +40,24 @@ namespace ReadWriteIO
 
         private void BtnWrite_Click(object sender, EventArgs e)
         {
+            if (TxtFirstName.Text + TxtLastName.Text + TxtMI.Text + TxtAge.Text == "") return;
             fileIO.WriteDelimitedString(TxtFirstName.Text, TxtLastName.Text, TxtMI.Text, TxtAge.Text);
             LbxRows.Items.Clear();
+        }
+
+        private void BtnSelectFile_Click(object sender, EventArgs e)
+        {
+            fileIO = new ReadWriteCSV();
+            LblFilePath.Text = fileIO.FullFilePath;
+            BtnRead.Enabled = true;
+            BtnWrite.Enabled = true;
+            BtnSelectFile.Enabled = false;
+            BtnRead.PerformClick();
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
@@ -58,23 +74,22 @@ public class ReadWriteCSV
         get { return delimitedLines; }
     }
 
-    public string FullFilePath
-    {
-        get { return fullFilePath; }
-        set { fullFilePath = value; }
-    }
-
-    public string Delimiter
-    {
-        get { return delimiter; }
-        set { delimiter = value; }
-    }
+    public readonly string FullFilePath;
 
 
-    public ReadWriteCSV(string filePath, string delimiterChr)
+
+
+    public ReadWriteCSV(string delimiterChr = ",")
     {
-        FullFilePath = filePath;
-        Delimiter = delimiterChr;
+        fullFilePath = null;
+        OpenFileDialog fileInfo = new OpenFileDialog();
+        fileInfo.Filter = "Text Files|*.txt; *.csv";
+
+        while (fileInfo.ShowDialog() != DialogResult.OK) { }
+        //if (fileInfo.ShowDialog() == DialogResult.OK) fullFilePath = fileInfo.FileName;
+        fullFilePath = fileInfo.FileName;
+        FullFilePath = fullFilePath;
+        delimiter = delimiterChr;
     }
 
     public string CreateDelimitedString(params string[] strings)
@@ -82,7 +97,7 @@ public class ReadWriteCSV
         string delimitedString = "";
         foreach (string param in strings)
         {
-            delimitedString += param + $"{Delimiter} ";
+            delimitedString += param + $"{delimiter} ";
         }
         delimitedString = delimitedString.Remove(delimitedString.Length - 2);
         return delimitedString;
@@ -94,7 +109,7 @@ public class ReadWriteCSV
         string delimitedString = "";
         foreach (string param in strings)
         {
-            delimitedString += param + $"{Delimiter} ";
+            delimitedString += param + $"{delimiter} ";
         }
         delimitedString = delimitedString.Remove(delimitedString.Length - 2);
 
@@ -102,14 +117,11 @@ public class ReadWriteCSV
         {
             delimitedLines.Add(delimitedString);
             File.WriteAllLines(fullFilePath, delimitedLines);
-
         }
         catch (Exception)
         {
-
             return false;
         }
-
         return true;
     }
 
