@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReadWriteIO));
             this.BtnRead = new System.Windows.Forms.Button();
             this.BtnWrite = new System.Windows.Forms.Button();
             this.LbxRows = new System.Windows.Forms.ListBox();
@@ -187,6 +188,7 @@
             this.Controls.Add(this.BtnWrite);
             this.Controls.Add(this.BtnRead);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmReadWriteIO";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
