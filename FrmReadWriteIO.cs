@@ -22,7 +22,8 @@ namespace ReadWriteIO
 
         private void FrmReadWriteIO_Load(object sender, EventArgs e)
         {
-            fileIO = new ReadWriteCSV(@"D:\Documents\Visual Studio 2019\Projects\ReadWriteIO\bin\Debug\Data.txt", ",");
+            fileIO = new ReadWriteCSV("Data.txt", ",");
+            //fileIO = new ReadWriteCSV(@"D:\Documents\Visual Studio 2019\Projects\ReadWriteIO\bin\Debug\Data.txt", ",");
             TxtFirstName.Select();
         }
 
