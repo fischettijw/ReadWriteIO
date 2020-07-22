@@ -73,7 +73,7 @@ namespace ReadWriteIO
             if (Int32.Parse(TxtRecordNumber.Text) > fileIO.DelimitedLines.Count - 1)
             {
                 MessageBox.Show($"Record Number was TOO High --- MAX record number is {fileIO.DelimitedLines.Count - 1}");
-                return;
+                TxtRecordNumber.Text = (fileIO.DelimitedLines.Count - 1).ToString();
             }
 
             string[] fields = ReadWriteCSV.ReadRecord(Int32.Parse(TxtRecordNumber.Text));
