@@ -24,6 +24,7 @@ namespace ReadWriteIO
         {
             BtnRead.Enabled = false;
             BtnWrite.Enabled = false;
+            BtnReadRecord.Enabled = false;
         }
 
         private void BtnRead_Click(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace ReadWriteIO
             LblFilePath.Text = fileIO.FullFilePath;
             BtnRead.Enabled = true;
             BtnWrite.Enabled = true;
+            BtnReadRecord.Enabled = true;
             BtnSelectFile.Enabled = false;
             BtnRead.PerformClick();
         }
@@ -60,14 +62,21 @@ namespace ReadWriteIO
             Application.Exit();
         }
 
-        private void BtnTest_Click(object sender, EventArgs e)
+        private void BtnReadRecord_Click(object sender, EventArgs e)
         {
             TxtFirstName.Text = "";
             TxtLastName.Text = "";
             TxtMI.Text = "";
             TxtAge.Text = "";
+            if (TxtRecordNumber.Text == "" || Int32.Parse(TxtRecordNumber.Text) < 0) TxtRecordNumber.Text = "0";
 
-            string[] fields = ReadWriteCSV.ReadRecord(0);
+            if (Int32.Parse(TxtRecordNumber.Text) > fileIO.DelimitedLines.Count - 1)
+            {
+                MessageBox.Show($"Record Number was TOO High --- MAX record number is {fileIO.DelimitedLines.Count - 1}");
+                return;
+            }
+
+            string[] fields = ReadWriteCSV.ReadRecord(Int32.Parse(TxtRecordNumber.Text));
 
             TxtFirstName.Text = fields[0];
             TxtLastName.Text = fields[1];
@@ -152,7 +161,8 @@ public class ReadWriteCSV
 
     public static string[] ReadRecord(int recordNumber)
     {
-        if (delimitedLines is null) return null;
+        if (recordNumber > delimitedLines.Count - 1 || recordNumber < 0) return null;
+
         string record = delimitedLines.ElementAt(recordNumber);
         return record.Split(Convert.ToChar(delimiter));
     }
