@@ -43,6 +43,7 @@
             this.LblFilePath = new System.Windows.Forms.Label();
             this.BtnSelectFile = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
+            this.BtnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnRead
@@ -168,11 +169,22 @@
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // BtnTest
+            // 
+            this.BtnTest.Location = new System.Drawing.Point(423, 467);
+            this.BtnTest.Name = "BtnTest";
+            this.BtnTest.Size = new System.Drawing.Size(96, 32);
+            this.BtnTest.TabIndex = 14;
+            this.BtnTest.Text = "Test";
+            this.BtnTest.UseVisualStyleBackColor = true;
+            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
+            // 
             // FrmReadWriteIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 511);
+            this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnSelectFile);
             this.Controls.Add(this.LblFilePath);
@@ -215,6 +227,7 @@
         private System.Windows.Forms.Label LblFilePath;
         private System.Windows.Forms.Button BtnSelectFile;
         private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.Button BtnTest;
     }
 }
 

@@ -59,6 +59,21 @@ namespace ReadWriteIO
         {
             Application.Exit();
         }
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            TxtFirstName.Text = "";
+            TxtLastName.Text = "";
+            TxtMI.Text = "";
+            TxtAge.Text = "";
+
+            string[] fields = ReadWriteCSV.ReadRecord(0);
+
+            TxtFirstName.Text = fields[0];
+            TxtLastName.Text = fields[1];
+            TxtMI.Text = fields[2];
+            TxtAge.Text = fields[3];
+        }
     }
 }
 
@@ -66,8 +81,8 @@ namespace ReadWriteIO
 public class ReadWriteCSV
 {
     private string fullFilePath;
-    private string delimiter;
-    private List<string> delimitedLines;
+    private static string delimiter;
+    private static List<string> delimitedLines;
 
     public List<string> DelimitedLines
     {
@@ -135,5 +150,11 @@ public class ReadWriteCSV
         return true;
     }
 
+    public static string[] ReadRecord(int recordNumber)
+    {
+        if (delimitedLines is null) return null;
+        string record = delimitedLines.ElementAt(recordNumber);
+        return record.Split(Convert.ToChar(delimiter));
+    }
 
 }
