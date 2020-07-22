@@ -76,9 +76,6 @@ public class ReadWriteCSV
 
     public readonly string FullFilePath;
 
-
-
-
     public ReadWriteCSV(string delimiterChr = ",")
     {
         fullFilePath = null;
