@@ -102,7 +102,6 @@ namespace ReadWriteIO
             BtnReadRecord.PerformClick();
         }
 
-
     }
 }
 
@@ -112,7 +111,7 @@ public class ReadWriteCSV
     private string fullFilePath;
     private static string delimiter;
     private static List<string> delimitedLines;
-
+    private OpenFileDialog fileInfo;
     public List<string> DelimitedLines
     {
         get { return delimitedLines; }
@@ -123,7 +122,7 @@ public class ReadWriteCSV
     public ReadWriteCSV(string delimiterChr = ",")
     {
         fullFilePath = null;
-        OpenFileDialog fileInfo = new OpenFileDialog();
+        fileInfo = new OpenFileDialog();
         fileInfo.Filter = "Text Files|*.txt; *.csv";
 
         //while (fileInfo.ShowDialog() != DialogResult.OK) { }
@@ -185,6 +184,15 @@ public class ReadWriteCSV
     {
         string record = delimitedLines.ElementAt(recordNumber);
         return record.Split(Convert.ToChar(delimiter));
+    }
+
+    public IEnumerable<string> ReadRecordIE()
+    {
+
+        foreach (string record in delimitedLines)
+        {
+            yield return record;
+        }
     }
 
 }
