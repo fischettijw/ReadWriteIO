@@ -159,6 +159,7 @@ public class ReadWriteCSV
         return true;
     }
 
+
     public static string[] ReadRecord(int recordNumber)
     {
         if (recordNumber > delimitedLines.Count - 1 || recordNumber < 0) return null;
