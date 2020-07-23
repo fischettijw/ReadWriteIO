@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -82,6 +83,13 @@ namespace ReadWriteIO
             TxtLastName.Text = fields[1];
             TxtMI.Text = fields[2];
             TxtAge.Text = fields[3];
+        }
+
+        private void TxtRecordNumber_DoubleClick(object sender, EventArgs e)
+        {
+            TxtRecordNumber.Text = (int.Parse(TxtRecordNumber.Text) + 1).ToString();
+            BtnReadRecord.Focus();
+            BtnReadRecord.PerformClick();
         }
     }
 }

@@ -188,6 +188,7 @@
             this.TxtRecordNumber.Size = new System.Drawing.Size(50, 29);
             this.TxtRecordNumber.TabIndex = 16;
             this.TxtRecordNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtRecordNumber.DoubleClick += new System.EventHandler(this.TxtRecordNumber_DoubleClick);
             // 
             // LblRecordNumber
             // 
