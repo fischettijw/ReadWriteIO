@@ -34,6 +34,8 @@ namespace ReadWriteIO
             fileIO.ReadDelimitedStrings();
             LbxRows.Items.Clear();
 
+            if (fileIO.DelimitedLines is null) return;
+
             foreach (string person in fileIO.DelimitedLines)
             {
                 LbxRows.Items.Add(person);
@@ -50,6 +52,7 @@ namespace ReadWriteIO
         private void BtnSelectFile_Click(object sender, EventArgs e)
         {
             fileIO = new ReadWriteCSV();
+            if (fileIO.FullFilePath is null) return;
             LblFilePath.Text = fileIO.FullFilePath;
             BtnRead.Enabled = true;
             BtnWrite.Enabled = true;
@@ -69,6 +72,13 @@ namespace ReadWriteIO
             TxtLastName.Text = "";
             TxtMI.Text = "";
             TxtAge.Text = "";
+
+            if (fileIO.DelimitedLines.Count == 0)
+            {
+                MessageBox.Show("Data File Contains NO Records");
+                return;
+            }
+
             if (TxtRecordNumber.Text == "" || Int32.Parse(TxtRecordNumber.Text) < 0) TxtRecordNumber.Text = "0";
 
             if (Int32.Parse(TxtRecordNumber.Text) > fileIO.DelimitedLines.Count - 1)
@@ -114,11 +124,13 @@ public class ReadWriteCSV
         OpenFileDialog fileInfo = new OpenFileDialog();
         fileInfo.Filter = "Text Files|*.txt; *.csv";
 
-        while (fileInfo.ShowDialog() != DialogResult.OK) { }
-        //if (fileInfo.ShowDialog() == DialogResult.OK) fullFilePath = fileInfo.FileName;
-        fullFilePath = fileInfo.FileName;
-        FullFilePath = fullFilePath;
-        delimiter = delimiterChr;
+        //while (fileInfo.ShowDialog() != DialogResult.OK) { }
+        if (fileInfo.ShowDialog() == DialogResult.OK)
+        {
+            fullFilePath = fileInfo.FileName;
+            FullFilePath = fullFilePath;
+            delimiter = delimiterChr;
+        }
     }
 
     public string CreateDelimitedString(params string[] strings)
@@ -169,8 +181,6 @@ public class ReadWriteCSV
 
     public static string[] ReadRecord(int recordNumber)
     {
-        if (recordNumber > delimitedLines.Count - 1 || recordNumber < 0) return null;
-
         string record = delimitedLines.ElementAt(recordNumber);
         return record.Split(Convert.ToChar(delimiter));
     }
