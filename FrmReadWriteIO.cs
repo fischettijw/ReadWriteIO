@@ -101,6 +101,8 @@ namespace ReadWriteIO
             BtnReadRecord.Focus();
             BtnReadRecord.PerformClick();
         }
+
+
     }
 }
 
