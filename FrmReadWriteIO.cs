@@ -97,7 +97,14 @@ namespace ReadWriteIO
 
         private void TxtRecordNumber_DoubleClick(object sender, EventArgs e)
         {
-            TxtRecordNumber.Text = (int.Parse(TxtRecordNumber.Text) + 1).ToString();
+            if (TxtRecordNumber.Text == "")
+            {
+                TxtRecordNumber.Text = "0";
+            }
+            else
+            {
+                TxtRecordNumber.Text = (int.Parse(TxtRecordNumber.Text) + 1).ToString();
+            }
             BtnReadRecord.Focus();
             BtnReadRecord.PerformClick();
         }
@@ -111,7 +118,6 @@ public class ReadWriteCSV
     private string fullFilePath;
     private static string delimiter;
     private static List<string> delimitedLines;
-    private OpenFileDialog fileInfo;
     public List<string> DelimitedLines
     {
         get { return delimitedLines; }
@@ -122,7 +128,7 @@ public class ReadWriteCSV
     public ReadWriteCSV(string delimiterChr = ",")
     {
         fullFilePath = null;
-        fileInfo = new OpenFileDialog();
+        OpenFileDialog fileInfo = new OpenFileDialog();
         fileInfo.Filter = "Text Files|*.txt; *.csv";
 
         //while (fileInfo.ShowDialog() != DialogResult.OK) { }
